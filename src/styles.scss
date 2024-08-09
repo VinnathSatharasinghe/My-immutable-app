@@ -57,11 +57,32 @@ h1 {
   color: $text-color;
   background: $input-background;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 
   &:focus {
     border-color: $primary-color;
     box-shadow: 0 0 8px rgba($primary-color, 0.5);
     outline: none;
+  }
+}
+
+.button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: $primary-color;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 }
 
@@ -88,6 +109,11 @@ h1 {
   .input-group input {
     font-size: 14px;
     padding: 12px;
+  }
+
+  .button {
+    padding: 12px 20px;
+    font-size: 14px;
   }
 
   .output {
