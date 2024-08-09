@@ -22,22 +22,40 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 1200px;
   padding: 30px;
   background: $container-background;
   border-radius: 10px;
   box-shadow: 0 4px 8px $shadow-color;
-  text-align: center;
+  overflow: hidden; // Prevents overflow issues
+}
+
+.section {
+  flex: 1;
+  padding: 20px;
+  background: $container-background;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px $shadow-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center content horizontally
+  overflow: auto; // Handle overflow
 }
 
 h1 {
   color: $primary-color;
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 20px;
+  text-align: center; // Center align heading
 }
 
 .input-group {
   margin-bottom: 20px;
+  width: 100%; // Full width
+  max-width: 500px; // Constrain max width
 }
 
 .input-group label {
@@ -95,15 +113,23 @@ h1 {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px $shadow-color;
+  width: 100%; // Full width
+  max-width: 500px; // Constrain max width
+  text-align: center; // Center align text
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
-    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section {
+    padding: 15px;
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .input-group input {
