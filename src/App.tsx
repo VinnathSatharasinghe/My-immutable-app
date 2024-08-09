@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useState } from 'react';
+import { Map } from 'immutable';
+
+// Define a type for the state
+type AppState = {
+  text: string;
+  result: string;
+};
+
+const App: React.FC = () => {
+  const [state, setState] = useState<AppState>({
+    text: '',
+    result: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newText = e.target.value;
+    // Create a new immutable Map
+    const data = Map({
+      text: newText
+    });
+    // Calculate the output (example: reverse the text)
+    const newResult = data.get('text')?.split('').reverse().join('') || '';
+    setState({
+      text: newText,
+      result: newResult
+    });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <h1>Immutable Text Reversal</h1>
+      <div className="input-group">
+        <label htmlFor="textInput">Enter Text:</label>
+        <input
+          id="textInput"
+          type="text"
+          value={state.text}
+          onChange={handleChange}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="output">
+        <strong>Reversed Text:</strong> {state.result}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
+
