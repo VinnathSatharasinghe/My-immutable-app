@@ -3,12 +3,12 @@
 // Define color variables
 $primary-color: #3498db;
 $secondary-color: #2ecc71;
-$background-color: #f4f4f9;
+$background-color: rgb(235, 30, 30);
 $text-color: #333;
 $input-background: #ffffff;
 $input-border: #ddd;
 $container-background: #ffffff;
-$shadow-color: rgba(0, 0, 0, 0.2);
+$shadow-color: rgba(156, 39, 39, 0.2);
 
 body {
   font-family: 'Arial', sans-serif;
@@ -18,7 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: $background-color;
+  background: black;
 }
 
 .container {
