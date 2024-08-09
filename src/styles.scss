@@ -1,49 +1,97 @@
 // src/styles.scss
 
+// Define color variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #f4f4f9;
+$text-color: #333;
+$input-background: #ffffff;
+$input-border: #ddd;
+$container-background: #ffffff;
+$shadow-color: rgba(0, 0, 0, 0.2);
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: $background-color;
+}
+
+.container {
+  max-width: 600px;
+  padding: 30px;
+  background: $container-background;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px $shadow-color;
+  text-align: center;
+}
+
+h1 {
+  color: $primary-color;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: $text-color;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid $input-border;
+  border-radius: 8px;
+  font-size: 16px;
+  color: $text-color;
+  background: $input-background;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 8px rgba($primary-color, 0.5);
+    outline: none;
   }
-  
+}
+
+.output {
+  font-size: 20px;
+  color: $secondary-color;
+  font-weight: bold;
+  margin-top: 20px;
+  background: rgba($secondary-color, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px $shadow-color;
+}
+
+@media (max-width: 600px) {
   .container {
-    max-width: 500px;
     padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   h1 {
-    color: #333;
     font-size: 24px;
-    margin-bottom: 20px;
   }
-  
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
+
   .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    font-size: 14px;
+    padding: 12px;
   }
-  
+
   .output {
     font-size: 18px;
-    color: #333;
+    padding: 10px;
   }
-  
+}
